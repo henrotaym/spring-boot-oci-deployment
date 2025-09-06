@@ -43,6 +43,6 @@ resource "ssh_resource" "remove_stack" {
   timeout = "15s"
   commands = [
     "(docker stack ls | grep -q ${local.full_app_name}) && docker stack rm ${local.full_app_name}",
-    "sudo rm -r /home/ubuntu/apps/${local.full_app_name}"
+    "sudo rm -r ${local.app_target_location}"
   ]
 }
